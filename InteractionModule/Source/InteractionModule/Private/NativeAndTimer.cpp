@@ -60,5 +60,5 @@ void  ANativeAndTimer::CountdownHasFinished_Implementation()
 {
 	//Change to a special readout
 	CountdownText->SetText(FText::FromString(FString::FromInt(FMath::Max(CountdownTime, 0))));
-	UE_LOG(LogTemp, Warning, TEXT("Countdown has finished!"));
+	UE_LOG(LogTemp, Warning, TEXT("Countdown has finished!  ---------------  "));
 }
