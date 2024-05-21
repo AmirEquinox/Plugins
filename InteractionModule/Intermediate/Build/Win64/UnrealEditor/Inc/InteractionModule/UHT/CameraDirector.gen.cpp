@@ -37,10 +37,6 @@ void EmptyLinkFunctionForGeneratedCodeCameraDirector() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_CameraTwo_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_CameraTwo;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_TimeToNextCameraChange_MetaData[];
-#endif
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_TimeToNextCameraChange;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -70,17 +66,9 @@ void EmptyLinkFunctionForGeneratedCodeCameraDirector() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ACameraDirector_Statics::NewProp_CameraTwo = { "CameraTwo", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACameraDirector, CameraTwo), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACameraDirector_Statics::NewProp_CameraTwo_MetaData), Z_Construct_UClass_ACameraDirector_Statics::NewProp_CameraTwo_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ACameraDirector_Statics::NewProp_TimeToNextCameraChange_MetaData[] = {
-		{ "Category", "CameraDirector" },
-		{ "ModuleRelativePath", "Public/CameraDirector.h" },
-	};
-#endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ACameraDirector_Statics::NewProp_TimeToNextCameraChange = { "TimeToNextCameraChange", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ACameraDirector, TimeToNextCameraChange), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ACameraDirector_Statics::NewProp_TimeToNextCameraChange_MetaData), Z_Construct_UClass_ACameraDirector_Statics::NewProp_TimeToNextCameraChange_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ACameraDirector_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACameraDirector_Statics::NewProp_CameraOne,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACameraDirector_Statics::NewProp_CameraTwo,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ACameraDirector_Statics::NewProp_TimeToNextCameraChange,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ACameraDirector_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ACameraDirector>::IsAbstract,
@@ -120,9 +108,9 @@ void EmptyLinkFunctionForGeneratedCodeCameraDirector() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_TestCpp_Plugins_InteractionModule_Source_InteractionModule_Public_CameraDirector_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ACameraDirector, ACameraDirector::StaticClass, TEXT("ACameraDirector"), &Z_Registration_Info_UClass_ACameraDirector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACameraDirector), 1711320672U) },
+		{ Z_Construct_UClass_ACameraDirector, ACameraDirector::StaticClass, TEXT("ACameraDirector"), &Z_Registration_Info_UClass_ACameraDirector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ACameraDirector), 3656805963U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_TestCpp_Plugins_InteractionModule_Source_InteractionModule_Public_CameraDirector_h_1998589949(TEXT("/Script/InteractionModule"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_TestCpp_Plugins_InteractionModule_Source_InteractionModule_Public_CameraDirector_h_1612119322(TEXT("/Script/InteractionModule"),
 		Z_CompiledInDeferFile_FID_TestCpp_Plugins_InteractionModule_Source_InteractionModule_Public_CameraDirector_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_TestCpp_Plugins_InteractionModule_Source_InteractionModule_Public_CameraDirector_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -13,6 +13,7 @@
 			"LevelTransitionInterface.gen.cpp.obj",
 			"MyArray.gen.cpp.obj",
 			"MyMap.gen.cpp.obj",
+			"NativeAndTimer.gen.cpp.obj",
 			"SpatialAudioActor.gen.cpp.obj",
 			"SplineCameraActor.gen.cpp.obj",
 			"ArchVizFunctionLibrary.cpp.obj",
@@ -26,6 +27,7 @@
 			"LevelTransitionInterface.cpp.obj",
 			"MyArray.cpp.obj",
 			"MyMap.cpp.obj",
+			"NativeAndTimer.cpp.obj",
 			"SpatialAudioActor.cpp.obj",
 			"SplineCameraActor.cpp.obj"
 		]

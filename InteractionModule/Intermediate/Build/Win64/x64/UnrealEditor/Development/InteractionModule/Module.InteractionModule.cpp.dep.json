@@ -58,6 +58,9 @@
             "d:\\amir\\testcpp\\plugins\\interactionmodule\\intermediate\\build\\win64\\unrealeditor\\inc\\interactionmodule\\uht\\mymap.gen.cpp",
             "d:\\amir\\testcpp\\plugins\\interactionmodule\\source\\interactionmodule\\public\\mymap.h",
             "d:\\amir\\testcpp\\plugins\\interactionmodule\\intermediate\\build\\win64\\unrealeditor\\inc\\interactionmodule\\uht\\mymap.generated.h",
+            "d:\\amir\\testcpp\\plugins\\interactionmodule\\intermediate\\build\\win64\\unrealeditor\\inc\\interactionmodule\\uht\\nativeandtimer.gen.cpp",
+            "d:\\amir\\testcpp\\plugins\\interactionmodule\\source\\interactionmodule\\public\\nativeandtimer.h",
+            "d:\\amir\\testcpp\\plugins\\interactionmodule\\intermediate\\build\\win64\\unrealeditor\\inc\\interactionmodule\\uht\\nativeandtimer.generated.h",
             "d:\\amir\\testcpp\\plugins\\interactionmodule\\intermediate\\build\\win64\\unrealeditor\\inc\\interactionmodule\\uht\\spatialaudioactor.gen.cpp",
             "d:\\amir\\testcpp\\plugins\\interactionmodule\\source\\interactionmodule\\public\\spatialaudioactor.h",
             "d:\\amir\\testcpp\\plugins\\interactionmodule\\intermediate\\build\\win64\\unrealeditor\\inc\\interactionmodule\\uht\\spatialaudioactor.generated.h",
@@ -706,6 +709,7 @@
             "d:\\amir\\testcpp\\plugins\\interactionmodule\\source\\interactionmodule\\private\\leveltransitioninterface.cpp",
             "d:\\amir\\testcpp\\plugins\\interactionmodule\\source\\interactionmodule\\private\\myarray.cpp",
             "d:\\amir\\testcpp\\plugins\\interactionmodule\\source\\interactionmodule\\private\\mymap.cpp",
+            "d:\\amir\\testcpp\\plugins\\interactionmodule\\source\\interactionmodule\\private\\nativeandtimer.cpp",
             "d:\\amir\\testcpp\\plugins\\interactionmodule\\source\\interactionmodule\\private\\spatialaudioactor.cpp",
             "d:\\amir\\testcpp\\plugins\\interactionmodule\\source\\interactionmodule\\private\\splinecameraactor.cpp"
         ],
