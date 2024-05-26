@@ -6,6 +6,7 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "Components/AudioComponent.h"
 #include "Sound/SoundBase.h"
+#include "Components/TextBlock.h"
 #include "ArchVizFunctionLibrary.generated.h"
 
 /**
@@ -26,5 +27,30 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Audio")
 	static void StopAllAudio(UAudioComponent* AudioComponent);
 
+
+// public:
+// 	// Function to start the typewriter effect
+// 	UFUNCTION(BlueprintCallable, Category = "UI")
+// 	static void StartTypewriterEffect(UTextBlock* TextBlock, const FString& Text, float TypeSpeed, USoundBase* TypeSound);
+//
+// 	// Function to change text content
+// 	UFUNCTION(BlueprintCallable, Category = "UI")
+// 	static void ChangeTextContent(UTextBlock* TextBlock, const FString& NewText, float TypeSpeed, USoundBase* TypeSound);
+//  
+// 	static void TypewriterCallback(UTextBlock* TextBlock, const FString& Text, int32 Index, float TypeSpeed, USoundBase* TypeSound);
+
+
+ ////////////////////
+	// Function to start the typewriter effect
+	UFUNCTION(BlueprintCallable, Category = "UI")
+	static void StartTypewriterEffect(UTextBlock* TextBlock, const FString& Text, float TypeSpeed, USoundBase* TypeSound);
+
+	UFUNCTION(BlueprintCallable, Category = "UI")
+	static void StopTypewriterEffect();
+
+private:
+	static void TypewriterCallback(UTextBlock* TextBlock, const FString& Text, int32 Index, float TypeSpeed, USoundBase* TypeSound);
+
+	static TMap<TWeakObjectPtr<UTextBlock>, struct FTypewriterState> TypewriterStates;
  
 };
