@@ -43,10 +43,16 @@ public:
  ////////////////////
 	// Function to start the typewriter effect
 	UFUNCTION(BlueprintCallable, Category = "UI")
-	static void StartTypewriterEffect(UTextBlock* TextBlock, const FString& Text, float TypeSpeed, USoundBase* TypeSound);
+	static void StartTypewriterEffect(UTextBlock* TextBlock, const FString& Text, float TypeSpeed, USoundBase* TypeSound, bool bPauseAtQuestionMark);
 
 	UFUNCTION(BlueprintCallable, Category = "UI")
 	static void StopTypewriterEffect();
+
+	UFUNCTION(BlueprintCallable, Category = "UI")
+	static void PauseTypewriterEffect(UTextBlock* TextBlock);
+
+	UFUNCTION(BlueprintCallable, Category = "UI")
+	static void Pause2TypewriterEffect(UTextBlock* TextBlock);
 
 private:
 	static void TypewriterCallback(UTextBlock* TextBlock, const FString& Text, int32 Index, float TypeSpeed, USoundBase* TypeSound);

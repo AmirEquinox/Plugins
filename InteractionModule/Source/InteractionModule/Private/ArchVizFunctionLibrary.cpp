@@ -241,35 +241,171 @@ void UArchVizFunctionLibrary::TypewriterCallback(UTextBlock* TextBlock, const FS
 
 
 //
+//
+// struct FTypewriterState
+// {
+//     bool bIsTyping;
+//     bool bIsPaused;
+//     bool bPauseAtQuestion;
+//     FString Text;
+//     float TypeSpeed;
+//     USoundBase* TypeSound;
+//     FTimerHandle TimerHandle;
+//
+//     FTypewriterState() : bIsTyping(false), bIsPaused(false), bPauseAtQuestion(false), TypeSpeed(0.05f), TypeSound(nullptr) {}
+// };
+//
+// TMap<TWeakObjectPtr<UTextBlock>, FTypewriterState> UArchVizFunctionLibrary::TypewriterStates;
+//
+// void UArchVizFunctionLibrary::StartTypewriterEffect(UTextBlock* TextBlock, const FString& Text, float TypeSpeed, USoundBase* TypeSound)
+// {
+//     if (!TextBlock || Text.IsEmpty())
+//         return;
+//
+//     if (TypewriterStates.Contains(TextBlock) && TypewriterStates[TextBlock].bIsTyping)
+//         return;
+//
+//     FTypewriterState TypewriterState;
+//     TypewriterState.bIsTyping = true;
+//     TypewriterState.Text = Text;
+//     TypewriterState.TypeSpeed = TypeSpeed;
+//     TypewriterState.TypeSound = TypeSound;
+//     TypewriterStates.Add(TextBlock, TypewriterState);
+//
+//     TextBlock->SetText(FText::GetEmpty());
+//
+//     TypewriterCallback(TextBlock, Text, 0, TypeSpeed, TypeSound);
+// }
+//
+// void UArchVizFunctionLibrary::StopTypewriterEffect()
+// {
+//     for (auto& Entry : TypewriterStates)
+//     {
+//         TWeakObjectPtr<UTextBlock> TextBlock = Entry.Key;
+//         FTypewriterState& State = Entry.Value;
+//
+//         State.bIsTyping = false;
+//         if (TextBlock.IsValid() && TextBlock->GetWorld())
+//         {
+//             TextBlock->GetWorld()->GetTimerManager().ClearTimer(State.TimerHandle);
+//         }
+//     }
+//
+//     TypewriterStates.Empty();
+// }
+//
+// void UArchVizFunctionLibrary::PauseTypewriterEffect(UTextBlock* TextBlock)
+// {
+//     if (TypewriterStates.Contains(TextBlock))
+//     {
+//         FTypewriterState& State = TypewriterStates[TextBlock];
+//         if (State.bIsTyping)
+//         {
+//             State.bIsPaused = !State.bIsPaused;
+//             if (!State.bIsPaused)
+//             {
+//                 TypewriterCallback(TextBlock, State.Text, TextBlock->GetText().ToString().Len(), State.TypeSpeed, State.TypeSound);
+//             }
+//         }
+//     }
+// }
+//
+// void UArchVizFunctionLibrary::Pause2TypewriterEffect(UTextBlock* TextBlock)
+// {
+//     if (TypewriterStates.Contains(TextBlock))
+//     {
+//         FTypewriterState& State = TypewriterStates[TextBlock];
+//         if (State.bIsTyping)
+//         {
+//             State.bPauseAtQuestion = !State.bPauseAtQuestion;
+//             if (!State.bPauseAtQuestion)
+//             {
+//                 TypewriterCallback(TextBlock, State.Text, TextBlock->GetText().ToString().Len(), State.TypeSpeed, State.TypeSound);
+//             }
+//         }
+//     }
+// }
+//
+// void UArchVizFunctionLibrary::TypewriterCallback(UTextBlock* TextBlock, const FString& Text, int32 Index, float TypeSpeed, USoundBase* TypeSound)
+// {
+//     if (TypewriterStates.Contains(TextBlock))
+//     {
+//         FTypewriterState& State = TypewriterStates[TextBlock];
+//
+//         if (!State.bIsTyping || State.bIsPaused || (State.bPauseAtQuestion && Index > 0 && Text[Index - 1] == '?'))
+//             return;
+//
+//         if (Index >= Text.Len())
+//         {
+//             State.bIsTyping = false;
+//             return;
+//         }
+//
+//         FString CurrentText = Text.Mid(0, Index + 1);
+//         TextBlock->SetText(FText::FromString(CurrentText));
+//
+//         if (TypeSound)
+//         {
+//             UGameplayStatics::PlaySound2D(TextBlock->GetWorld(), TypeSound);
+//         }
+//
+//         if (Text[Index] == '?')
+//         {
+//             State.bPauseAtQuestion = true;
+//             return;
+//         }
+//
+//         State.TimerHandle.Invalidate();
+//         UWorld* World = TextBlock->GetWorld();
+//         if (World)
+//         {
+//             World->GetTimerManager().SetTimer(State.TimerHandle, [TextBlock, Text, Index, TypeSpeed, TypeSound]()
+//             {
+//                 TypewriterCallback(TextBlock, Text, Index + 1, TypeSpeed, TypeSound);
+//             }, TypeSpeed, false);
+//         }
+//     }
+// }
 
+//       pause at ? and continue answer button possible here .
 
 
 struct FTypewriterState
 {
     bool bIsTyping;
+    bool bIsPaused;
+    bool bPauseAtQuestion;
+    bool bShouldPauseAtQuestionMark;
     FString Text;
     float TypeSpeed;
     USoundBase* TypeSound;
     FTimerHandle TimerHandle;
 
-    FTypewriterState() : bIsTyping(false), TypeSpeed(0.05f), TypeSound(nullptr) {}
+    FTypewriterState() : bIsTyping(false), bIsPaused(false), bPauseAtQuestion(false), bShouldPauseAtQuestionMark(false), TypeSpeed(0.05f), TypeSound(nullptr) {}
 };
 
 TMap<TWeakObjectPtr<UTextBlock>, FTypewriterState> UArchVizFunctionLibrary::TypewriterStates;
 
-void UArchVizFunctionLibrary::StartTypewriterEffect(UTextBlock* TextBlock, const FString& Text, float TypeSpeed, USoundBase* TypeSound)
+void UArchVizFunctionLibrary::StartTypewriterEffect(UTextBlock* TextBlock, const FString& Text, float TypeSpeed, USoundBase* TypeSound, bool bPauseAtQuestionMark)
 {
     if (!TextBlock || Text.IsEmpty())
         return;
 
-    if (TypewriterStates.Contains(TextBlock) && TypewriterStates[TextBlock].bIsTyping)
-        return;
+    // Clear the old typewriter state if it exists for this TextBlock
+    if (TypewriterStates.Contains(TextBlock))
+    {
+        FTypewriterState& OldState = TypewriterStates[TextBlock];
+        OldState.bIsTyping = false;
+        TextBlock->GetWorld()->GetTimerManager().ClearTimer(OldState.TimerHandle);
+    }
 
+    // Create a new typewriter state for this TextBlock
     FTypewriterState TypewriterState;
     TypewriterState.bIsTyping = true;
     TypewriterState.Text = Text;
     TypewriterState.TypeSpeed = TypeSpeed;
     TypewriterState.TypeSound = TypeSound;
+    TypewriterState.bShouldPauseAtQuestionMark = bPauseAtQuestionMark;
     TypewriterStates.Add(TextBlock, TypewriterState);
 
     TextBlock->SetText(FText::GetEmpty());
@@ -277,7 +413,7 @@ void UArchVizFunctionLibrary::StartTypewriterEffect(UTextBlock* TextBlock, const
     TypewriterCallback(TextBlock, Text, 0, TypeSpeed, TypeSound);
 }
 
-// Stop typwriter function used stop all UTextBlock ref and World Ref than level transition savely.
+
 void UArchVizFunctionLibrary::StopTypewriterEffect()
 {
     for (auto& Entry : TypewriterStates)
@@ -292,17 +428,53 @@ void UArchVizFunctionLibrary::StopTypewriterEffect()
         }
     }
 
-    // Clear the map to release all references
     TypewriterStates.Empty();
+}
+
+void UArchVizFunctionLibrary::PauseTypewriterEffect(UTextBlock* TextBlock)
+{
+    if (TypewriterStates.Contains(TextBlock))
+    {
+        FTypewriterState& State = TypewriterStates[TextBlock];
+        if (State.bIsTyping)
+        {
+            State.bIsPaused = !State.bIsPaused;
+            if (!State.bIsPaused)
+            {
+                TypewriterCallback(TextBlock, State.Text, TextBlock->GetText().ToString().Len(), State.TypeSpeed, State.TypeSound);
+            }
+        }
+    }
+}
+
+void UArchVizFunctionLibrary::Pause2TypewriterEffect(UTextBlock* TextBlock)
+{
+    if (TypewriterStates.Contains(TextBlock))
+    {
+        FTypewriterState& State = TypewriterStates[TextBlock];
+        if (State.bIsTyping)
+        {
+            State.bPauseAtQuestion = !State.bPauseAtQuestion;
+            if (!State.bPauseAtQuestion)
+            {
+                TypewriterCallback(TextBlock, State.Text, TextBlock->GetText().ToString().Len(), State.TypeSpeed, State.TypeSound);
+            }
+        }
+    }
 }
 
 void UArchVizFunctionLibrary::TypewriterCallback(UTextBlock* TextBlock, const FString& Text, int32 Index, float TypeSpeed, USoundBase* TypeSound)
 {
-    if (TypewriterStates.Contains(TextBlock) && TypewriterStates[TextBlock].bIsTyping)
+    if (TypewriterStates.Contains(TextBlock))
     {
+        FTypewriterState& State = TypewriterStates[TextBlock];
+
+        if (!State.bIsTyping || State.bIsPaused || (State.bPauseAtQuestion && Text[Index - 1] == '?'))
+            return;
+
         if (Index >= Text.Len())
         {
-            TypewriterStates[TextBlock].bIsTyping = false;
+            State.bIsTyping = false;
             return;
         }
 
@@ -314,7 +486,12 @@ void UArchVizFunctionLibrary::TypewriterCallback(UTextBlock* TextBlock, const FS
             UGameplayStatics::PlaySound2D(TextBlock->GetWorld(), TypeSound);
         }
 
-        FTypewriterState& State = TypewriterStates[TextBlock];
+        if (State.bShouldPauseAtQuestionMark && Text[Index] == '?')
+        {
+            State.bPauseAtQuestion = true;
+            return;
+        }
+
         State.TimerHandle.Invalidate();
         UWorld* World = TextBlock->GetWorld();
         if (World)
