@@ -38,6 +38,8 @@ public class InteractionModule : ModuleRules
 				"Engine",
 				"Slate",
 				"SlateCore",
+				"UMG",
+				"MediaAssets",
 
 
 				// ... add private dependencies that you statically link with here ...	

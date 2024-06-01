@@ -11,6 +11,7 @@
 			"InteractionModule.init.gen.cpp.obj",
 			"LevelTransitionFunction.gen.cpp.obj",
 			"LevelTransitionInterface.gen.cpp.obj",
+			"MediaPlayerLibrary.gen.cpp.obj",
 			"MyArray.gen.cpp.obj",
 			"MyMap.gen.cpp.obj",
 			"NativeAndTimer.gen.cpp.obj",

@@ -14,8 +14,44 @@ void EmptyLinkFunctionForGeneratedCodeArchVizFunctionLibrary() {}
 	ENGINE_API UClass* Z_Construct_UClass_USoundBase_NoRegister();
 	INTERACTIONMODULE_API UClass* Z_Construct_UClass_UArchVizFunctionLibrary();
 	INTERACTIONMODULE_API UClass* Z_Construct_UClass_UArchVizFunctionLibrary_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_InteractionModule();
 // End Cross Module References
+	DEFINE_FUNCTION(UArchVizFunctionLibrary::execPause2TypewriterEffect)
+	{
+		P_GET_OBJECT(UTextBlock,Z_Param_TextBlock);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		UArchVizFunctionLibrary::Pause2TypewriterEffect(Z_Param_TextBlock);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UArchVizFunctionLibrary::execPauseTypewriterEffect)
+	{
+		P_GET_OBJECT(UTextBlock,Z_Param_TextBlock);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		UArchVizFunctionLibrary::PauseTypewriterEffect(Z_Param_TextBlock);
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UArchVizFunctionLibrary::execStopTypewriterEffect)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		UArchVizFunctionLibrary::StopTypewriterEffect();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UArchVizFunctionLibrary::execStartTypewriterEffect)
+	{
+		P_GET_OBJECT(UTextBlock,Z_Param_TextBlock);
+		P_GET_PROPERTY(FStrProperty,Z_Param_Text);
+		P_GET_PROPERTY(FFloatProperty,Z_Param_TypeSpeed);
+		P_GET_OBJECT(USoundBase,Z_Param_TypeSound);
+		P_GET_UBOOL(Z_Param_bPauseAtQuestionMark);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		UArchVizFunctionLibrary::StartTypewriterEffect(Z_Param_TextBlock,Z_Param_Text,Z_Param_TypeSpeed,Z_Param_TypeSound,Z_Param_bPauseAtQuestionMark);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UArchVizFunctionLibrary::execStopAllAudio)
 	{
 		P_GET_OBJECT(UAudioComponent,Z_Param_AudioComponent);
@@ -45,11 +81,101 @@ void EmptyLinkFunctionForGeneratedCodeArchVizFunctionLibrary() {}
 	{
 		UClass* Class = UArchVizFunctionLibrary::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "Pause2TypewriterEffect", &UArchVizFunctionLibrary::execPause2TypewriterEffect },
+			{ "PauseTypewriterEffect", &UArchVizFunctionLibrary::execPauseTypewriterEffect },
 			{ "PlayAudio", &UArchVizFunctionLibrary::execPlayAudio },
+			{ "StartTypewriterEffect", &UArchVizFunctionLibrary::execStartTypewriterEffect },
 			{ "StopAllAudio", &UArchVizFunctionLibrary::execStopAllAudio },
+			{ "StopTypewriterEffect", &UArchVizFunctionLibrary::execStopTypewriterEffect },
 			{ "TransitionToLevel", &UArchVizFunctionLibrary::execTransitionToLevel },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics
+	{
+		struct ArchVizFunctionLibrary_eventPause2TypewriterEffect_Parms
+		{
+			UTextBlock* TextBlock;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TextBlock_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_TextBlock;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::NewProp_TextBlock_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::NewProp_TextBlock = { "TextBlock", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ArchVizFunctionLibrary_eventPause2TypewriterEffect_Parms, TextBlock), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::NewProp_TextBlock_MetaData), Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::NewProp_TextBlock_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::NewProp_TextBlock,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::Function_MetaDataParams[] = {
+		{ "Category", "UI" },
+		{ "ModuleRelativePath", "Public/ArchVizFunctionLibrary.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UArchVizFunctionLibrary, nullptr, "Pause2TypewriterEffect", nullptr, nullptr, Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::PropPointers), sizeof(Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::ArchVizFunctionLibrary_eventPause2TypewriterEffect_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::Function_MetaDataParams), Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::ArchVizFunctionLibrary_eventPause2TypewriterEffect_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics
+	{
+		struct ArchVizFunctionLibrary_eventPauseTypewriterEffect_Parms
+		{
+			UTextBlock* TextBlock;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TextBlock_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_TextBlock;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::NewProp_TextBlock_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::NewProp_TextBlock = { "TextBlock", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ArchVizFunctionLibrary_eventPauseTypewriterEffect_Parms, TextBlock), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::NewProp_TextBlock_MetaData), Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::NewProp_TextBlock_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::NewProp_TextBlock,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::Function_MetaDataParams[] = {
+		{ "Category", "UI" },
+		{ "ModuleRelativePath", "Public/ArchVizFunctionLibrary.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UArchVizFunctionLibrary, nullptr, "PauseTypewriterEffect", nullptr, nullptr, Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::PropPointers), sizeof(Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::ArchVizFunctionLibrary_eventPauseTypewriterEffect_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::Function_MetaDataParams), Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::ArchVizFunctionLibrary_eventPauseTypewriterEffect_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_UArchVizFunctionLibrary_PlayAudio_Statics
 	{
@@ -98,6 +224,84 @@ void EmptyLinkFunctionForGeneratedCodeArchVizFunctionLibrary() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics
+	{
+		struct ArchVizFunctionLibrary_eventStartTypewriterEffect_Parms
+		{
+			UTextBlock* TextBlock;
+			FString Text;
+			float TypeSpeed;
+			USoundBase* TypeSound;
+			bool bPauseAtQuestionMark;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TextBlock_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_TextBlock;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Text_MetaData[];
+#endif
+		static const UECodeGen_Private::FStrPropertyParams NewProp_Text;
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_TypeSpeed;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_TypeSound;
+		static void NewProp_bPauseAtQuestionMark_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_bPauseAtQuestionMark;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_TextBlock_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_TextBlock = { "TextBlock", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ArchVizFunctionLibrary_eventStartTypewriterEffect_Parms, TextBlock), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_TextBlock_MetaData), Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_TextBlock_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_Text_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_Text = { "Text", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ArchVizFunctionLibrary_eventStartTypewriterEffect_Parms, Text), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_Text_MetaData), Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_Text_MetaData) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_TypeSpeed = { "TypeSpeed", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ArchVizFunctionLibrary_eventStartTypewriterEffect_Parms, TypeSpeed), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_TypeSound = { "TypeSound", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ArchVizFunctionLibrary_eventStartTypewriterEffect_Parms, TypeSound), Z_Construct_UClass_USoundBase_NoRegister, METADATA_PARAMS(0, nullptr) };
+	void Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_bPauseAtQuestionMark_SetBit(void* Obj)
+	{
+		((ArchVizFunctionLibrary_eventStartTypewriterEffect_Parms*)Obj)->bPauseAtQuestionMark = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_bPauseAtQuestionMark = { "bPauseAtQuestionMark", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ArchVizFunctionLibrary_eventStartTypewriterEffect_Parms), &Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_bPauseAtQuestionMark_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_TextBlock,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_Text,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_TypeSpeed,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_TypeSound,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::NewProp_bPauseAtQuestionMark,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::Function_MetaDataParams[] = {
+		{ "Category", "UI" },
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "////////////////////\n// Function to start the typewriter effect\n" },
+#endif
+		{ "ModuleRelativePath", "Public/ArchVizFunctionLibrary.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "Function to start the typewriter effect" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UArchVizFunctionLibrary, nullptr, "StartTypewriterEffect", nullptr, nullptr, Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::PropPointers), sizeof(Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::ArchVizFunctionLibrary_eventStartTypewriterEffect_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::Function_MetaDataParams), Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::ArchVizFunctionLibrary_eventStartTypewriterEffect_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UArchVizFunctionLibrary_StopAllAudio_Statics
 	{
 		struct ArchVizFunctionLibrary_eventStopAllAudio_Parms
@@ -138,6 +342,29 @@ void EmptyLinkFunctionForGeneratedCodeArchVizFunctionLibrary() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UArchVizFunctionLibrary_StopAllAudio_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UArchVizFunctionLibrary_StopTypewriterEffect_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UArchVizFunctionLibrary_StopTypewriterEffect_Statics::Function_MetaDataParams[] = {
+		{ "Category", "UI" },
+		{ "ModuleRelativePath", "Public/ArchVizFunctionLibrary.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UArchVizFunctionLibrary_StopTypewriterEffect_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UArchVizFunctionLibrary, nullptr, "StopTypewriterEffect", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04022401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UArchVizFunctionLibrary_StopTypewriterEffect_Statics::Function_MetaDataParams), Z_Construct_UFunction_UArchVizFunctionLibrary_StopTypewriterEffect_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_UArchVizFunctionLibrary_StopTypewriterEffect()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UArchVizFunctionLibrary_StopTypewriterEffect_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -205,8 +432,12 @@ void EmptyLinkFunctionForGeneratedCodeArchVizFunctionLibrary() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UArchVizFunctionLibrary_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UArchVizFunctionLibrary_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UArchVizFunctionLibrary_Pause2TypewriterEffect, "Pause2TypewriterEffect" }, // 553700772
+		{ &Z_Construct_UFunction_UArchVizFunctionLibrary_PauseTypewriterEffect, "PauseTypewriterEffect" }, // 1343321679
 		{ &Z_Construct_UFunction_UArchVizFunctionLibrary_PlayAudio, "PlayAudio" }, // 2265056355
+		{ &Z_Construct_UFunction_UArchVizFunctionLibrary_StartTypewriterEffect, "StartTypewriterEffect" }, // 344124644
 		{ &Z_Construct_UFunction_UArchVizFunctionLibrary_StopAllAudio, "StopAllAudio" }, // 536069339
+		{ &Z_Construct_UFunction_UArchVizFunctionLibrary_StopTypewriterEffect, "StopTypewriterEffect" }, // 144337579
 		{ &Z_Construct_UFunction_UArchVizFunctionLibrary_TransitionToLevel, "TransitionToLevel" }, // 3063109348
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UArchVizFunctionLibrary_Statics::FuncInfo) < 2048);
@@ -257,9 +488,9 @@ void EmptyLinkFunctionForGeneratedCodeArchVizFunctionLibrary() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_TestCpp_Plugins_InteractionModule_Source_InteractionModule_Public_ArchVizFunctionLibrary_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UArchVizFunctionLibrary, UArchVizFunctionLibrary::StaticClass, TEXT("UArchVizFunctionLibrary"), &Z_Registration_Info_UClass_UArchVizFunctionLibrary, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UArchVizFunctionLibrary), 864662789U) },
+		{ Z_Construct_UClass_UArchVizFunctionLibrary, UArchVizFunctionLibrary::StaticClass, TEXT("UArchVizFunctionLibrary"), &Z_Registration_Info_UClass_UArchVizFunctionLibrary, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UArchVizFunctionLibrary), 1624379215U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_TestCpp_Plugins_InteractionModule_Source_InteractionModule_Public_ArchVizFunctionLibrary_h_1154522775(TEXT("/Script/InteractionModule"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_TestCpp_Plugins_InteractionModule_Source_InteractionModule_Public_ArchVizFunctionLibrary_h_559094491(TEXT("/Script/InteractionModule"),
 		Z_CompiledInDeferFile_FID_TestCpp_Plugins_InteractionModule_Source_InteractionModule_Public_ArchVizFunctionLibrary_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_TestCpp_Plugins_InteractionModule_Source_InteractionModule_Public_ArchVizFunctionLibrary_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
