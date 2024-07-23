@@ -1,0 +1,33 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\amir\\testcpp\\plugins\\ui_plugin\\intermediate\\build\\win64\\x64\\unrealgame\\development\\ui_plugin\\module.ui_plugin.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\amir\\testcpp\\intermediate\\build\\win64\\x64\\testcpp\\development\\engine\\sharedpch.engine.cpp20.inclorderunreal5_0.h.pch",
+        "Includes": [
+            "d:\\amir\\testcpp\\plugins\\ui_plugin\\intermediate\\build\\win64\\x64\\unrealgame\\development\\ui_plugin\\definitions.ui_plugin.h",
+            "d:\\amir\\testcpp\\plugins\\ui_plugin\\intermediate\\build\\win64\\unrealgame\\inc\\ui_plugin\\uht\\actorprintui.gen.cpp",
+            "d:\\amir\\testcpp\\plugins\\ui_plugin\\source\\ui_plugin\\public\\actorprintui.h",
+            "d:\\amir\\testcpp\\plugins\\ui_plugin\\intermediate\\build\\win64\\unrealgame\\inc\\ui_plugin\\uht\\actorprintui.generated.h",
+            "d:\\amir\\testcpp\\plugins\\ui_plugin\\intermediate\\build\\win64\\unrealgame\\inc\\ui_plugin\\uht\\medialibraryforui.gen.cpp",
+            "d:\\amir\\testcpp\\plugins\\ui_plugin\\source\\ui_plugin\\public\\medialibraryforui.h",
+            "d:\\amir\\testcpp\\plugins\\ui_plugin\\intermediate\\build\\win64\\unrealgame\\inc\\ui_plugin\\uht\\medialibraryforui.generated.h",
+            "d:\\amir\\testcpp\\plugins\\ui_plugin\\intermediate\\build\\win64\\unrealgame\\inc\\ui_plugin\\uht\\ui_plugin.init.gen.cpp",
+            "d:\\amir\\testcpp\\plugins\\ui_plugin\\source\\ui_plugin\\private\\actorprintui.cpp",
+            "d:\\amir\\testcpp\\plugins\\ui_plugin\\source\\ui_plugin\\private\\medialibraryforui.cpp",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\mediaassets\\public\\mediaplayer.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\media\\public\\imediaoptions.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\media\\public\\imediametadataitem.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\mediautils\\public\\mediaplayeroptions.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealgame\\inc\\mediautils\\uht\\mediaplayeroptions.generated.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\media\\public\\imediatimesource.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealgame\\inc\\mediaassets\\uht\\mediaplayer.generated.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\source\\runtime\\mediaassets\\public\\mediaplaylist.h",
+            "c:\\program files\\epic games\\ue_5.3\\engine\\intermediate\\build\\win64\\unrealgame\\inc\\mediaassets\\uht\\mediaplaylist.generated.h",
+            "d:\\amir\\testcpp\\plugins\\ui_plugin\\source\\ui_plugin\\private\\ui_plugin.cpp",
+            "d:\\amir\\testcpp\\plugins\\ui_plugin\\source\\ui_plugin\\public\\ui_plugin.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

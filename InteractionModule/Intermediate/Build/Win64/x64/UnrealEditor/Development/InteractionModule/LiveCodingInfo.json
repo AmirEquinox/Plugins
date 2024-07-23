@@ -25,6 +25,7 @@
 			"InteractionModule.cpp.obj",
 			"LevelTransitionFunction.cpp.obj",
 			"LevelTransitionInterface.cpp.obj",
+			"MediaPlayerLibrary.cpp.obj",
 			"MyArray.cpp.obj",
 			"MyMap.cpp.obj",
 			"NativeAndTimer.cpp.obj",

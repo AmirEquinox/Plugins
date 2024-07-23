@@ -1,0 +1,13 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.UI_Plugin.cpp.obj": [
+			"ActorPrintUI.gen.cpp.obj",
+			"MediaLibraryForUI.gen.cpp.obj",
+			"UI_Plugin.init.gen.cpp.obj",
+			"ActorPrintUI.cpp.obj",
+			"MediaLibraryForUI.cpp.obj",
+			"UI_Plugin.cpp.obj"
+		]
+	}
+}

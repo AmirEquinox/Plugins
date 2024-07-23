@@ -1,0 +1,13 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.VFExtra.cpp.obj": [
+			"VFExtra.init.gen.cpp.obj",
+			"VFExtraBPLibrary.gen.cpp.obj",
+			"VFExtra.cpp.obj",
+			"VFExtraBPLibrary.cpp.obj",
+			"VFExtraCommands.cpp.obj",
+			"VFExtraStyle.cpp.obj"
+		]
+	}
+}

@@ -22,6 +22,7 @@
 #include "D:/Amir/TestCpp/Plugins/InteractionModule/Source/InteractionModule/Private/InteractionModule.cpp"
 #include "D:/Amir/TestCpp/Plugins/InteractionModule/Source/InteractionModule/Private/LevelTransitionFunction.cpp"
 #include "D:/Amir/TestCpp/Plugins/InteractionModule/Source/InteractionModule/Private/LevelTransitionInterface.cpp"
+#include "D:/Amir/TestCpp/Plugins/InteractionModule/Source/InteractionModule/Private/MediaPlayerLibrary.cpp"
 #include "D:/Amir/TestCpp/Plugins/InteractionModule/Source/InteractionModule/Private/MyArray.cpp"
 #include "D:/Amir/TestCpp/Plugins/InteractionModule/Source/InteractionModule/Private/MyMap.cpp"
 #include "D:/Amir/TestCpp/Plugins/InteractionModule/Source/InteractionModule/Private/NativeAndTimer.cpp"

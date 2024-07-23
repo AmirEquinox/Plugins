@@ -1,0 +1,12 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-UI_Plugin.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\Amir\TestCpp\Intermediate\Build\Win64\x64\TestCppEditor\Development\Engine\SharedPCH.Engine.Cpp20.InclOrderUnreal5_0.h.obj"
+"D:\Amir\TestCpp\Plugins\UI_Plugin\Intermediate\Build\Win64\x64\UnrealEditor\Development\UI_Plugin\Module.UI_Plugin.cpp.obj"
+"D:\Amir\TestCpp\Plugins\UI_Plugin\Intermediate\Build\Win64\x64\UnrealEditor\Development\UI_Plugin\Default.rc2.res"
+/OUT:"D:\Amir\TestCpp\Plugins\UI_Plugin\Intermediate\Build\Win64\x64\UnrealEditor\Development\UI_Plugin\UnrealEditor-UI_Plugin.lib"
